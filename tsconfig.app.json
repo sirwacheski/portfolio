@@ -27,5 +27,12 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["app"]
+  "include": [
+    "app", 
+    "public",
+    "main.tsx", 
+    "index.html", 
+    "vite.config.ts",
+    "package.json"
+  ]
 }
