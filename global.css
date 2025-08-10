@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #000000;
+  --color-primary: #ef4444;
+  --color-text: #ffffff;
+}
+
+@layer base {
+  * {
+    @apply box-border m-0 p-0;
+  }
+  body {
+    @apply w-full h-full font-mono bg-background text-text;
+
+    background-size: 18px 18px;
+    background-image: radial-gradient(#1f1f1f 0.9px, #000000 0.9px);
+  }
+}
+
+.primary-button {
+  @apply cursor-pointer flex flex-row gap-x-3 items-center justify-center bg-primary text-sm text-text font-medium capitalize px-4 py-3 rounded-full;
+  transition: all 0.3s ease-in-out;
+}
+
+.primary-button:hover {
+  @apply bg-red-600 transform -translate-y-0.5;
+}
+
+.secondary-button {
+  @apply cursor-pointer text-text/70 text-sm px-5 py-3 flex items-center justify-center gap-x-3 capitalize rounded-full border border-text/50;
+  transition: all 0.3s ease-in-out;
+}
+
+.secondary-button:hover {
+  @apply border-text text-background bg-white transform -translate-y-0.5;
+}
+
+header .navigation-link {
+  @apply text-sm text-text/50;
+}
+
+header .navigation-link:hover {
+  @apply text-text;
+  transition: all 0.3s ease-in-out;
+}
+
+.skill-image {
+  filter: grayscale(1);
+  transition: all 0.3s ease-in-out;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-40px) scale(1.1);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
