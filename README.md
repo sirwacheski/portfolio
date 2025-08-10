@@ -1,69 +1,48 @@
-# React + TypeScript + Vite
+# Elias Wacheski – Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern single-page portfolio built with React, TypeScript, Vite, and Tailwind CSS 4. It showcases About, Projects, Expertise, and Contact sections with a clean, responsive UI, smooth scrolling, SVG assets, and quick external links to LinkedIn and résumé.
 
-Currently, two official plugins are available:
+## Features
+- Responsive header with mobile menu and smooth in-page navigation.
+- Hero section with call to scroll; About section with résumé download.
+- Projects grid with external links and technology chips.
+- Expertise section with marquee-style skill cards.
+- Contact call-to-action that opens LinkedIn.
+- Fast development workflow powered by Vite + Tailwind.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- React 19 + TypeScript
+- Vite 7
+- Tailwind CSS 4 (+ @tailwindcss/vite)
+- Icons: lucide-react, react-icons
+- Animation/UX: react-fast-marquee, react-multi-carousel (styles imported in main)
+- SVGs via vite-plugin-svgr
+- Linting: ESLint + typescript-eslint
 
-## Expanding the ESLint configuration
+## Requirements
+- Node.js 18+ (LTS recommended)
+- Yarn (this repo includes yarn.lock)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
+- Install dependencies: `yarn`
+- Run dev server: `yarn dev`
+- Build for production: `yarn build`
+- Preview production build: `yarn preview`
+- Lint: `yarn lint`
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Project Structure (key files)
+- `app/Application.tsx` – Main UI and page sections (hero, about, projects, expertise, contact)
+- `app/assets/*.svg` – Technology and brand icons (SVG)
+- `global.css` – Tailwind CSS entry and globals
+- `vite.config.ts` – Plugins and alias (`@` → `./app`)
+- `index.html`, `main.tsx` – App bootstrap
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Customization
+- Content: edit the `skills` and `projects` arrays in `app/Application.tsx`.
+- Résumé: update the download link in the About section.
+- Social: change the LinkedIn URL in the Contact section.
+- Branding: replace SVGs in `app/assets` and adjust styles in `global.css`.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Deployment
+- Output is static; deploy the `dist` folder to any static host (Vercel, Netlify, GitHub Pages, etc.).
+- Typical settings: build command `yarn build`, output directory `dist`.
